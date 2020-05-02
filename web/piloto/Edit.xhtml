@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPilotoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_identificacion}" for="identificacion" />
+                    <h:inputText id="identificacion" value="#{pilotoController.selected.identificacion}" title="#{bundle.EditPilotoTitle_identificacion}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_identificacion}"/>
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_nombrePiloto}" for="nombrePiloto" />
+                    <h:inputText id="nombrePiloto" value="#{pilotoController.selected.nombrePiloto}" title="#{bundle.EditPilotoTitle_nombrePiloto}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_nombrePiloto}"/>
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_nacionalidad}" for="nacionalidad" />
+                    <h:inputText id="nacionalidad" value="#{pilotoController.selected.nacionalidad}" title="#{bundle.EditPilotoTitle_nacionalidad}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_nacionalidad}"/>
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_numeroParticipacion}" for="numeroParticipacion" />
+                    <h:inputText id="numeroParticipacion" value="#{pilotoController.selected.numeroParticipacion}" title="#{bundle.EditPilotoTitle_numeroParticipacion}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_numeroParticipacion}"/>
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_marcaMoto}" for="marcaMoto" />
+                    <h:inputText id="marcaMoto" value="#{pilotoController.selected.marcaMoto}" title="#{bundle.EditPilotoTitle_marcaMoto}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_marcaMoto}"/>
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_colorMoto}" for="colorMoto" />
+                    <h:inputText id="colorMoto" value="#{pilotoController.selected.colorMoto}" title="#{bundle.EditPilotoTitle_colorMoto}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_colorMoto}"/>
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_cilindrajeMoto}" for="cilindrajeMoto" />
+                    <h:inputText id="cilindrajeMoto" value="#{pilotoController.selected.cilindrajeMoto}" title="#{bundle.EditPilotoTitle_cilindrajeMoto}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_cilindrajeMoto}"/>
+                    <h:outputLabel value="#{bundle.EditPilotoLabel_tiempoClasificacion}" for="tiempoClasificacion" />
+                    <h:inputText id="tiempoClasificacion" value="#{pilotoController.selected.tiempoClasificacion}" title="#{bundle.EditPilotoTitle_tiempoClasificacion}" required="true" requiredMessage="#{bundle.EditPilotoRequiredMessage_tiempoClasificacion}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{pilotoController.update}" value="#{bundle.EditPilotoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPilotoViewLink}"/>
+                <br />
+                <h:commandLink action="#{pilotoController.prepareList}" value="#{bundle.EditPilotoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPilotoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

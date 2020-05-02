@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPilotoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPilotoLabel_identificacion}"/>
+                    <h:outputText value="#{pilotoController.selected.identificacion}" title="#{bundle.ViewPilotoTitle_identificacion}"/>
+                    <h:outputText value="#{bundle.ViewPilotoLabel_nombrePiloto}"/>
+                    <h:outputText value="#{pilotoController.selected.nombrePiloto}" title="#{bundle.ViewPilotoTitle_nombrePiloto}"/>
+                    <h:outputText value="#{bundle.ViewPilotoLabel_nacionalidad}"/>
+                    <h:outputText value="#{pilotoController.selected.nacionalidad}" title="#{bundle.ViewPilotoTitle_nacionalidad}"/>
+                    <h:outputText value="#{bundle.ViewPilotoLabel_numeroParticipacion}"/>
+                    <h:outputText value="#{pilotoController.selected.numeroParticipacion}" title="#{bundle.ViewPilotoTitle_numeroParticipacion}"/>
+                    <h:outputText value="#{bundle.ViewPilotoLabel_marcaMoto}"/>
+                    <h:outputText value="#{pilotoController.selected.marcaMoto}" title="#{bundle.ViewPilotoTitle_marcaMoto}"/>
+                    <h:outputText value="#{bundle.ViewPilotoLabel_colorMoto}"/>
+                    <h:outputText value="#{pilotoController.selected.colorMoto}" title="#{bundle.ViewPilotoTitle_colorMoto}"/>
+                    <h:outputText value="#{bundle.ViewPilotoLabel_cilindrajeMoto}"/>
+                    <h:outputText value="#{pilotoController.selected.cilindrajeMoto}" title="#{bundle.ViewPilotoTitle_cilindrajeMoto}"/>
+                    <h:outputText value="#{bundle.ViewPilotoLabel_tiempoClasificacion}"/>
+                    <h:outputText value="#{pilotoController.selected.tiempoClasificacion}" title="#{bundle.ViewPilotoTitle_tiempoClasificacion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pilotoController.destroyAndView}" value="#{bundle.ViewPilotoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPilotoEditLink}"/>
+                <br />
+                <h:commandLink action="#{pilotoController.prepareCreate}" value="#{bundle.ViewPilotoCreateLink}" />
+                <br />
+                <h:commandLink action="#{pilotoController.prepareList}" value="#{bundle.ViewPilotoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPilotoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
